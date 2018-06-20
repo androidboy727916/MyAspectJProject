@@ -29,6 +29,8 @@ public class AdvisePermission implements IAspectj {
             String[] psermissions = annot.permissions();
             if (!validatePermissions(context, psermissions)) {
                 ActivityCompat.requestPermissions((Activity) context, psermissions, 1);
+            } else {
+                ((Activity) context).requestPermissions(psermissions, 1);
             }
         }
         return joinPoint.proceed();
